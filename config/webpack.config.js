@@ -123,6 +123,9 @@ module.exports = function(webpackEnv) {
           loader: require.resolve(preProcessor),
           options: {
             sourceMap: true,
+            lessOptions: {
+              javascriptEnabled: true // 允许 less 里有 js 代码
+            }
           },
         }
       );
@@ -384,6 +387,14 @@ module.exports = function(webpackEnv) {
                       },
                     },
                   ],
+                  [
+                    "import",
+                    {
+                      "libraryName": "antd",
+                      "libraryDirectory": "es",
+                      "style": true
+                    }
+                  ]
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
