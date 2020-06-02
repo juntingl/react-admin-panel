@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.less';
-import Skeleton from '@/layout';
+import Skeleton from '@/layouts';
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout, Breadcrumb } from 'antd';
 
 import SiderWrapper from './Sider';
 import HeaderWrapper from './Header';
@@ -52,13 +52,26 @@ class Skeleton extends React.Component {
   {/* 头部 Start */}
           <HeaderWrapper collapsed={this.state.collapsed} toggle={this.toggle} />
   {/* 头部 End */}
+          <div className="page-header">
+            <div className="page-header-content">
+              <Breadcrumb>
+                <Breadcrumb.Item><a href="/">Home</a></Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  Application Center
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  Application List
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>An Application</Breadcrumb.Item>
+              </Breadcrumb>
+            </div>
+          </div>
 
   {/* 主题内容区 Start */}
           <Content
             className="site-layout-background"
             style={{
-              margin: '24px 16px',
-              padding: 24,
+              margin: 24,
               minHeight: 280,
             }}
           >
