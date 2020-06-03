@@ -5,6 +5,8 @@ import SiderWrapper from './Sider';
 import HeaderWrapper from './Header';
 import FooterWrapper from './Footer';
 import './index.less';
+import { dateFormat } from '@/libs/utils';
+import Home from '@/pages/home';
 
 // mock
 import { menuList } from '@/mock'
@@ -14,11 +16,20 @@ const { Content } = Layout;
 class Skeleton extends React.Component {
   state = {
     collapsed: false,
-    menuList: []
+    menuList: [],
+    username: 'Junting',
+    dateTime: ''
   };
 
   componentDidMount() {
     this.fetchMenu();
+
+    const formDate = dateFormat('yyyy-MM-dd hh:mm:ss');
+    setInterval(() => {
+      this.setState({
+        dateTime: formDate(new Date ())
+      })
+    }, 1000);
   }
 
   fetchMenu = (data) => {
@@ -50,7 +61,11 @@ class Skeleton extends React.Component {
 {/* 右侧内容区 Start */}
         <Layout className="site-layout">
   {/* 头部 Start */}
-          <HeaderWrapper collapsed={this.state.collapsed} toggle={this.toggle} />
+          <HeaderWrapper
+            collapsed={this.state.collapsed}
+            username={this.state.username}
+            toggle={this.toggle}
+            />
   {/* 头部 End */}
           <div className="page-header">
             <div className="page-header-content">
@@ -64,6 +79,11 @@ class Skeleton extends React.Component {
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>An Application</Breadcrumb.Item>
               </Breadcrumb>
+
+              <div className="page-header-content-tips">
+                <span>{this.state.dateTime}</span>
+                <span style={{marginLeft: '10px'}}>晴天</span>
+              </div>
             </div>
           </div>
 
@@ -75,7 +95,7 @@ class Skeleton extends React.Component {
               minHeight: 280,
             }}
           >
-            Content
+            <Home />
           </Content>
   {/* 主题内容区 End */}
 

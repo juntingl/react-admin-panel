@@ -4,6 +4,7 @@ import { Layout, Dropdown, Menu, Avatar } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  UserOutlined
 } from '@ant-design/icons';
 import './index.less';
 
@@ -46,8 +47,8 @@ class HeaderWrapper extends Component {
         <div className="nav-right">
           <Dropdown className="nav-right-user" overlay={menu} placement="bottomRight">
             <span>
-              <Avatar className="avatar" size="small" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-              Junting
+              <Avatar className="avatar" size="small" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" icon={<UserOutlined />}/>
+              {this.props.username}
             </span>
           </Dropdown>
         </div>
